@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: web-app
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    env: node
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 10000  # default fallback port
+    healthCheckPath: /
