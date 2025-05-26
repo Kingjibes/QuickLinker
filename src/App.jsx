@@ -42,16 +42,17 @@ import React, { useEffect } from 'react';
             }
             
             
-            const { error: analyticError } = await supabase.from('url_analytics').insert({
+            const { error: analyticsError } = await supabase.from('url_analytics').insert({
                 url_id: urlData.id,
                 user_agent: navigator.userAgent,
               });
 
-            if (analyticError) {
-              console.warn("Failed to log analytics:", analyticError.message);
+            if (analyticsError) {
+              console.warn("Failed to log analytics:", analyticsError.message);
             }
             
             window.location.href = urlData.original_url;
+
 
           } catch (error) {
             console.error('Unexpected error during redirect:', error);
